@@ -1,0 +1,178 @@
+
+<!--<mat-sidenav-container class="parent&#45;&#45;container">-->
+<!--  &lt;!&ndash; Sidenav &ndash;&gt;-->
+<!--  <mat-sidenav #sidenav mode="side" position="end" class="sidenav">-->
+<!--    <mat-toolbar>-->
+<!--      <button mat-icon-button (click)="closeSidebar()">-->
+<!--        <mat-icon>close</mat-icon>-->
+<!--      </button>-->
+<!--      <span>{{ isEditing ? 'Edit Task' : 'Add Task' }}</span>-->
+<!--    </mat-toolbar>-->
+<!--    <div class="form-container">-->
+<!--      <form (ngSubmit)="onSubmit()">-->
+<!--        <mat-form-field class="example-full-width">-->
+<!--          <mat-label>Task Name</mat-label>-->
+<!--          <input #taskNameInput matInput [(ngModel)]="task.name" name="name" required>-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field class="example-full-width">-->
+<!--          <mat-label>Description</mat-label>-->
+<!--          <textarea matInput [(ngModel)]="task.description" name="description" required></textarea>-->
+<!--        </mat-form-field>-->
+<!--        <button mat-raised-button color="primary" type="submit">Save</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </mat-sidenav>-->
+
+<!--  &lt;!&ndash; Main Content &ndash;&gt;-->
+<!--  <mat-sidenav-content>-->
+<!--    <div class="navbar_container">-->
+<!--      <span>-->
+<!--        <fa-icon [icon]="faBars"></fa-icon>-->
+<!--      </span>-->
+<!--      <span>-->
+<!--        <fa-icon [icon]="faSearch"></fa-icon>-->
+<!--        <fa-icon [icon]="faExpand"></fa-icon>-->
+<!--      </span>-->
+<!--    </div>-->
+
+<!--    <div class="tasks&#45;&#45;heading">-->
+<!--      <span>-->
+<!--        <h1>Tasks</h1>-->
+<!--        <span>{{ tasks.length }} remaining tasks</span>-->
+<!--      </span>-->
+<!--      <span>-->
+<!--        <button (click)="openSidebar()">-->
+<!--          <fa-icon [icon]="faPlus"></fa-icon>-->
+<!--          Add Section-->
+<!--        </button>-->
+<!--        <button (click)="openSidebar()">-->
+<!--          <fa-icon [icon]="faPlus"></fa-icon>-->
+<!--          Add Task-->
+<!--        </button>-->
+<!--      </span>-->
+<!--    </div>-->
+
+<!--    <div *ngFor="let task of tasks" class="tasks-lists">-->
+<!--      <table>-->
+
+<!--        <tr>-->
+<!--          <fa-icon [icon]="faBars" class="visibility"></fa-icon>-->
+<!--          <fa-icon [icon]="faCircleCheck"></fa-icon>-->
+<!--          <span><b>{{ task.name }}</b></span>-->
+<!--          <span><b>{{ task.description }}</b></span>-->
+<!--          <button mat-button color="warn" (click)="deleteTask(task._id!)">Delete</button>-->
+<!--          <button mat-button color="accent" (click)="editTask(task)">Edit</button>-->
+<!--        </tr>-->
+<!--        &lt;!&ndash;        <hr/>&ndash;&gt;-->
+
+<!--      </table>-->
+<!--    </div>-->
+<!--  </mat-sidenav-content>-->
+<!--</mat-sidenav-container>-->
+
+
+
+<mat-sidenav-container class="parent--container">
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav mode="side" position="end" class="sidenav">
+    <mat-toolbar>
+      <button mat-icon-button (click)="closeSidebar()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <span>{{ isAddingSection ? 'Add Section' : isEditing ? 'Edit Task' : 'Add Task' }}</span>
+    </mat-toolbar>
+    <div class="form-container">
+      <form (ngSubmit)="onSubmit()">
+        <div *ngIf="isAddingSection">
+          <mat-form-field class="example-full-width">
+            <mat-label>Section Name</mat-label>
+            <input matInput [(ngModel)]="sectionName" name="sectionName" required>
+          </mat-form-field>
+          <h3>{{ sectionName }}</h3>
+        </div>
+        <div *ngIf="!isAddingSection">
+          <mat-form-field class="example-full-width">
+            <mat-label>Task Name</mat-label>
+            <input #taskNameInput matInput [(ngModel)]="task.name" name="name" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="task.description" name="description" required></textarea>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Save</button>
+      </form>
+    </div>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <div class="navbar_container">
+      <span>
+        <fa-icon [icon]="faBars"></fa-icon>
+      </span>
+      <span>
+        <fa-icon [icon]="faSearch"></fa-icon>
+        <fa-icon [icon]="faExpand"></fa-icon>
+      </span>
+    </div>
+
+    <div class="tasks--heading">
+      <span>
+        <h1>Tasks</h1>
+        <span>{{ tasks.length }} remaining tasks</span>
+      </span>
+      <span>
+        <button (click)="openSidebar(true)">
+          <fa-icon [icon]="faPlus"></fa-icon>
+          Add Section
+        </button>
+        <button (click)="openSidebar(false)">
+          <fa-icon [icon]="faPlus"></fa-icon>
+          Add Task
+        </button>
+      </span>
+    </div>
+
+        <h3>section </h3>
+
+    <h3>{{ sectionName }}</h3>
+
+
+    <h4>Task Lists</h4>
+
+    <div *ngFor="let task of tasks" class="tasks-lists">
+      <table>
+        <tr>
+          <fa-icon [icon]="faBars" class="visibility"></fa-icon>
+          <fa-icon [icon]="faCircleCheck"></fa-icon>
+          <span><b>{{ task.name }}</b></span>
+          <span><b>{{ task.description }}</b></span>
+          <button mat-button color="warn" (click)="deleteTask(task._id!)">Delete</button>
+          <button mat-button color="accent" (click)="editTask(task)">Edit</button>
+        </tr>
+      </table>
+    </div>
+
+    <div *ngFor="let section of sections" class="sections-lists">
+      <h2>{{ section.name }}</h2>
+      <div *ngFor="let task of section.tasks" class="tasks-lists">
+        <table>
+          <tr>
+            <fa-icon [icon]="faBars" class="visibility"></fa-icon>
+            <fa-icon [icon]="faCircleCheck"></fa-icon>
+            <span><b>{{ task.name }}</b></span>
+            <span><b>{{ task.description }}</b></span>
+            <button mat-button color="warn" (click)="deleteTask(task._id!)">Delete</button>
+            <button mat-button color="accent" (click)="editTask(task)">Edit</button>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+

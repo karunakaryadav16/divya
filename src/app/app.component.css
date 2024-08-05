@@ -1,0 +1,296 @@
+* {
+  box-sizing: border-box;
+}
+
+.parent--container {
+  max-height: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+}
+
+.navbar_container {
+  width: 100%;
+  border-bottom: 1px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+}
+
+
+.navbar_container > span:last-of-type{
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+
+}
+
+
+
+
+/* task heading  css starts here */
+
+.tasks--heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+}
+
+
+
+.tasks--heading > span:last-of-type{
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+}
+
+
+
+
+.tasks--heading  button:first-of-type{
+  padding:10px;
+  background-color:rgb(30, 41, 59);
+  border-radius: 25px;
+  border:none;
+  color:white;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+
+
+}
+.tasks--heading button:last-of-type{
+  padding: 10px;
+  background-color: rgb(79, 71, 230);
+  border-radius: 25px;
+  color:white;
+  border: none;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+b{
+  font-weight:1000;
+}
+
+h1{
+  padding:0px;
+  margin: 0px;
+  font-weight:1000;
+  font-size: 32px ;
+}
+
+
+/* task heading css ends here */
+
+
+.sidenav-container {
+  height: 100vh; /* Ensure the container takes up full height */
+}
+
+
+mat-sidenav {
+  width: 300px; /* Adjust width as needed */
+}
+
+mat-sidenav-content {
+  padding: 16px; /* Adjust padding as needed */
+}
+
+mat-sidenav-container {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+
+tr:hover{
+  background-color: rgb(178, 190, 181);
+}
+
+table{
+  min-width:100%;
+  border: 1px solid white;
+}
+
+
+
+tr{
+  display: flex;
+  min-width: 100%;
+  column-gap: 20px;
+  padding:10px;
+  border-bottom: 2px solid black;
+}
+
+.visibility{
+  visibility: hidden;
+}
+
+
+tr:hover .visibility{
+  visibility: visible;
+  cursor:pointer;
+}
+
+
+tr > button:first-of-type,
+tr > button:last-of-type {
+  background: none;
+  border: none;
+
+}
+
+tr > button {
+  color: inherit;
+}
+
+
+
+
+
+/**{*/
+/*  box-sizing: border-box;*/
+/*}*/
+
+
+
+/*!* Ensure html and body take up full height and have no margins *!*/
+/*html, body {*/
+/*  height: 100%;*/
+/*  margin: 0;*/
+/*}*/
+
+/*!* Ensure mat-sidenav-container takes up full viewport height *!*/
+/*mat-sidenav-container {*/
+/*  height: 100vh; !* Full viewport height *!*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
+
+/*!* Ensure parent container also takes full height *!*/
+/*.parent--container {*/
+/*  height: 100vh; !* Full viewport height *!*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  box-sizing: border-box;*/
+/*}*/
+
+/*!* Style the sidenav *!*/
+/*mat-sidenav {*/
+/*  width: 200px; !* Adjust width as needed *!*/
+/*  background: #f4f4f4; !* Example background color *!*/
+/*}*/
+
+/*!* Style the content area inside the sidenav *!*/
+/*mat-sidenav-content {*/
+/*  padding: 16px; !* Adjust padding as needed *!*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  overflow: auto; !* Handle overflow *!*/
+/*  flex: 1; !* Allow it to expand and fill available space *!*/
+/*}*/
+
+/*!* Style the toolbar *!*/
+/*mat-toolbar {*/
+/*  background: #3f51b5; !* Example color *!*/
+/*  color: white; !* Example color *!*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*}*/
+
+/*!* Style for the navbar container *!*/
+/*.navbar_container {*/
+/*  width: 100%;*/
+/*  border-bottom: 1px solid black;*/
+/*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*  padding: 20px;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*}*/
+
+/*!* Style for buttons in the heading *!*/
+/*.tasks--heading {*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*  padding: 20px;*/
+/*}*/
+
+/*.tasks--heading > span:last-of-type {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  column-gap: 10px;*/
+/*}*/
+
+/*.tasks--heading button:first-of-type {*/
+/*  padding: 10px;*/
+/*  background-color: rgb(30, 41, 59);*/
+/*  border-radius: 25px;*/
+/*  border: none;*/
+/*  color: white;*/
+/*  display: flex;*/
+/*  column-gap: 10px;*/
+/*  align-items: center;*/
+/*}*/
+
+/*.tasks--heading button:last-of-type {*/
+/*  padding: 10px;*/
+/*  background-color: rgb(79, 71, 230);*/
+/*  border-radius: 25px;*/
+/*  color: white;*/
+/*  border: none;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  column-gap: 10px;*/
+/*}*/
+
+/*!* Style for headings and task details *!*/
+/*b {*/
+/*  font-weight: 1000;*/
+/*}*/
+
+/*h1 {*/
+/*  padding: 0px;*/
+/*  margin: 0px;*/
+/*  font-weight: 1000;*/
+/*  font-size: 32px;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
